@@ -18,7 +18,7 @@ app.get('/cumulative-delta/:tradingPair', async (req: Request, res: Response) =>
         cumulativeDelta -= trade.size;
       }
     });
-    res.json({ cumulativeDelta });
+    res.json({ tradingPair, cumulativeDelta });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -28,3 +28,5 @@ app.get('/cumulative-delta/:tradingPair', async (req: Request, res: Response) =>
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+export default app;
